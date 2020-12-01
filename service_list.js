@@ -2,7 +2,7 @@
 /* Get the requested data                                      */
 /* ----------------------------------------------------------- */
 
-function getAjaxData(theurl) {
+function getServiceData(theurl) {
   var result="";
   $.ajax({
     url: theurl,
@@ -30,7 +30,7 @@ jQuery( document ).ready(function() {
   // SELECT * WHERE D = 'Pentecost' and E = 'The Rev. John Buenz'ORDER BY A DESC
   // ?tqx=out:html
 
-  function getUrlVars() {
+  function getServiceVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
         vars[key] = value;
@@ -40,7 +40,7 @@ jQuery( document ).ready(function() {
 
   var selectYear = '';
   var sermonby = ''; 
-  var parms = getUrlVars();
+  var parms = getServiceVars();
   //console.log(parms); 
   if (parms['year'] != null) {selectYear = parms['year'];}
   if (parms['sermonby'] != null) {sermonby = parms['sermonby'];}
@@ -67,7 +67,7 @@ jQuery( document ).ready(function() {
 
   var url = 'https://docs.google.com/spreadsheets/u/0/d/' 
     + file_id + '/gviz/tq?tqx=&tq=' + escape('SELECT year(A), count(B) group by year(A) order by year(A) desc'); 
-  var yearlist = getAjaxData(url); 
+  var yearlist = getServiceData(url); 
   xyears = yearlist.table.rows;
   var options = "<option value=''>All</option>";
   xyears.forEach(function(item, key) {
@@ -79,7 +79,7 @@ jQuery( document ).ready(function() {
 
   var url = 'https://docs.google.com/spreadsheets/u/0/d/' 
     + file_id + '/gviz/tq?tqx=&tq=' + escape('SELECT F, count(A) group by F ORDER BY count(A) DESC'); 
-  var yearlist = getAjaxData(url); 
+  var yearlist = getServiceData(url); 
   xyears = yearlist.table.rows;
   var options = "<option value=''>All</option>";
   //console.log(xyears);
@@ -98,7 +98,7 @@ jQuery( document ).ready(function() {
     //https://docs.google.com/spreadsheets/u/0/d/1kOMXiEOqupEBZcjFdUiceYTIJzWXsscJkdr57qcEjkE/gviz/tq?tqx=out:html&tq=
     // SELECT year(A), count(B) group by year(A)
 
-  var xlist = getAjaxData(url);
+  var xlist = getServiceData(url);
   var datalist = xlist.table.rows;
   var collist = xlist.table.cols;
 
