@@ -41,7 +41,7 @@ jQuery( document ).ready(function() {
   var selectYear = '';
   var sermonby = ''; 
   var parms = getUrlVars();
-  console.log(parms); 
+  //console.log(parms); 
   if (parms['year'] != null) {selectYear = parms['year'];}
   if (parms['sermonby'] != null) {sermonby = parms['sermonby'];}
   sermonby = sermonby.replace(/\+/g,' '); 
@@ -82,7 +82,7 @@ jQuery( document ).ready(function() {
   var yearlist = getAjaxData(url); 
   xyears = yearlist.table.rows;
   var options = "<option value=''>All</option>";
-  console.log(xyears);
+  //console.log(xyears);
   xyears.forEach(function(item, key) {
     var selected = '';
     if (item.c[0] != null) {
