@@ -193,10 +193,6 @@ div.section-background div.mySlides.opaque {
     filter: alpha(opacity=1);
 }
 
-div.mySlides {
-  z-index: 1;
-}
-
 div.slideCaption {
   z-index: 2;
 }
