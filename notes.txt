@@ -4,9 +4,9 @@ jQuery
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
 Raw
-<script type="text/javascript" src="https://raw.githubusercontent.com/grcrane/sq-ccla/main/code.js"></script>
-<script type="text/javascript" src="https://raw.githubusercontent.com/grcrane/sq-ccla/main/service_list.js"></script>
-<link rel='stylesheet' href="https://raw.githubusercontent.com/grcrane/sq-ccla/main/style.css" />
+https://raw.githubusercontent.com/grcrane/sq-ccla/main/code.js
+https://raw.githubusercontent.com/grcrane/sq-ccla/main/service_list.js
+https://raw.githubusercontent.com/grcrane/sq-ccla/main/style.css
 
 cdn
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/grcrane/sq-ccla@main/code.js"></script>
