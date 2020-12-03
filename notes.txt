@@ -12,3 +12,31 @@ cdn
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/grcrane/sq-ccla@main/code.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/grcrane/sq-ccla@main/service_list.js"></script>
 <link rel='stylesheet' href="https://cdn.jsdelivr.net/gh/grcrane/sq-ccla@main/style.css" />
+
+Service List page code
+
+<script>                                     
+jQuery(document).ready(function() {                                                        
+   getServiceFromGoogle();
+})
+</script>
+
+<div id=servicePage action="">
+  <form id="selectOptions">
+    <fieldset>
+    <legend>Search</legend>
+    <div>
+    <label for="year">Service Year:</label>
+    <select id=year name="year" onchange="this.form.submit()"></select>
+  </div>
+  <div>
+    <label for="sermonby">Sermon By:</label>
+    <select id=sermonby name="sermonby" onchange="this.form.submit()"></select>
+  </div>
+    <input type=button onclick="javascript: window.location.assign(window.location.pathname);" value="Clear Search">
+  </fieldset>
+  </form>
+  <p>
+  <div id="services">
+  </div>
+</div>
