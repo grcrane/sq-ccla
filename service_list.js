@@ -20,8 +20,6 @@
         return result;
     }
 
-    //jQuery(document).ready(function() {
-
         /* ----------------------------------------------------------- */
         /* Get a list of available audio recordings                    */
         /* and construct list with links                               */
@@ -30,28 +28,23 @@
         // SELECT * WHERE D = 'Pentecost' and E = 'The Rev. John Buenz'ORDER BY A DESC
         // ?tqx=out:html
 
-        function getServiceVars() {
-            var vars = {};
-            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
-                vars[key] = value;
-            });
-            return vars;
+        
+        function processList(what = null) {
+            if (what == 'clear') {
+                $('#year').html('');
+                $('#sermonby').html('');
+            }
+            getServiceFromGoogle();
         }
 
         function getServiceFromGoogle() {
 
-        var selectYear = '';
-        var sermonby = '';
-        var parms = getServiceVars();
-        //console.log(parms); 
-        if (parms['year'] != null) {
-            selectYear = parms['year'];
+        var selectYear = $('#year').val();
+        var sermonby = $('#sermonby').val();
+        if (sermonby) {
+            sermonby = sermonby.replace(/\+/g, ' ');
+            sermonby = unescape(sermonby);
         }
-        if (parms['sermonby'] != null) {
-            sermonby = parms['sermonby'];
-        }
-        sermonby = sermonby.replace(/\+/g, ' ');
-        sermonby = unescape(sermonby);
 
         var where = [];
         var whereitem = 0;
@@ -75,7 +68,10 @@
         + file_id + '/gviz/tq?tqx=&tq=' + escape('SELECT year(A), count(B) group by year(A) order by year(A) desc');
         var yearlist = getServiceData(url);
         xyears = yearlist.table.rows;
-        var options = "<option value=''>All</option>";
+        $('#selectOptions select#year').html('');
+        console.log(xyears);
+        if (!selectYear && xyears != null) {selectYear = xyears[0].c[0].v;}
+        //var options = "<option value=''>All</option>";
         xyears.forEach(function(item, key) {
             var selected = '';
             if (item.c[0].v == selectYear) {
@@ -130,6 +126,7 @@
         var ref1Col = 13;
         var ref1NoteCol = 14;
 
+        $('#services').html('');
         datalist.forEach(function(item, key) {
 
             thetitle = 'Unknown title';
