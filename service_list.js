@@ -30,12 +30,15 @@
 
         
         function processList(what = null) {
+
             if (what == 'clear') {
                 $('#year').html('');
                 $('#sermonby').html('');
             }
             getServiceFromGoogle();
         }
+
+        
 
         function getServiceFromGoogle() {
 
@@ -50,7 +53,7 @@
         var whereitem = 0;
         var file_id = '1kOMXiEOqupEBZcjFdUiceYTIJzWXsscJkdr57qcEjkE';
         var query = "SELECT *";
-        if (selectYear) {
+        if (selectYear && selectYear != 'ALL') {
             //  query = query + " WHERE year(A) = " + selectYear; 
             where[whereitem] = "year(A) = " + selectYear;
             whereitem++;
@@ -64,14 +67,18 @@
             query = query + " WHERE " + where.join(' AND ');
         }
 
-        var url = 'https://docs.google.com/spreadsheets/u/0/d/'
-        + file_id + '/gviz/tq?tqx=&tq=' + escape('SELECT year(A), count(B) group by year(A) order by year(A) desc');
-        var yearlist = getServiceData(url);
-        xyears = yearlist.table.rows;
+        if (typeof xyears == 'undefined') {
+            var url = 'https://docs.google.com/spreadsheets/u/0/d/'
+            + file_id + '/gviz/tq?tqx=&tq=' + escape('SELECT year(A), count(B) group by year(A) order by year(A) desc');
+            var yearlist = getServiceData(url);
+            xyears = yearlist.table.rows;
+        }
         $('#selectOptions select#year').html('');
         console.log(xyears);
         if (!selectYear && xyears != null) {selectYear = xyears[0].c[0].v;}
-        //var options = "<option value=''>All</option>";
+        var selected = '';
+        if (selectYear == 'ALL') {selected = ' selected ';}
+        var options = "<option value='ALL' " + selected + ">All</option>";
         xyears.forEach(function(item, key) {
             var selected = '';
             if (item.c[0].v == selectYear) {
@@ -81,13 +88,15 @@
         })
         $('#selectOptions select#year').append(options);
 
-        var url = 'https://docs.google.com/spreadsheets/u/0/d/'
-        + file_id + '/gviz/tq?tqx=&tq=' + escape('SELECT F, count(A) group by F ORDER BY count(A) DESC');
-        var yearlist = getServiceData(url);
-        xyears = yearlist.table.rows;
+        if (typeof xby == 'undefined') {
+            var url = 'https://docs.google.com/spreadsheets/u/0/d/'
+            + file_id + '/gviz/tq?tqx=&tq=' + escape('SELECT F, count(A) group by F ORDER BY count(A) DESC');
+            var bylist = getServiceData(url);
+            xby = bylist.table.rows;
+        }
         var options = "<option value=''>All</option>";
         //console.log(xyears);
-        xyears.forEach(function(item, key) {
+        xby.forEach(function(item, key) {
             var selected = '';
             if (item.c[0] != null) {
                 if (item.c[0].v == sermonby) {
