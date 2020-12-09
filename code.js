@@ -362,6 +362,7 @@ function getServiceFromGoogle() {
 
 function getLastVideo() {
 
+    // Get the most recent sermon from the spreadsheet
     var query = "SELECT * WHERE L IS NOT NULL ORDER BY A DESC LIMIT 1";
     var url = 'https://docs.google.com/spreadsheets/u/0/d/'
     + file_id + '/gviz/tq?tqx=&tq=' + escape(query);
@@ -372,21 +373,38 @@ function getLastVideo() {
     var preacher = lastvideo[0].c[preacherCol].v;
     var title = lastvideo[0].c[titleCol].v; 
     var beginsat = lastvideo[0].c[videoNoteCol].v;
-    if (beginsat) { beginsat = '(Sermon begins at ' + beginsat + ')';}
-    //var id = videourl.split('/').pop();
-    
+    if (beginsat) { 
+        var patt = new RegExp("^[0-9]*[:]?[0-9]*$");
+        var res = patt.test(beginsat);
+        var start = beginsat.split(':');  
+        var startsec = 1; 
+        if (start.length > 0) { startsec = +start[0] * 60;}
+        if (start.length > 1) {startsec = +startsec + +start[1];}
+    }
     $('.serviceInfo div.theTitle').html(title);
     $('.serviceInfo div.theDate').html(thedate);
-    $('.serviceInfo div.theBegins').html(beginsat);
+    $('.serviceInfo div.theBegins').html('(Sermon begins at ' + beginsat + ')');
     $('.serviceInfo div.thePreacher').html(preacher);
 
-    var ID = '';
+    var id = '';
     url = videourl.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
     if(url[2] !== undefined) {
-        ID = url[2].split(/[^0-9a-z_\-]/i);
-        ID = ID[0];
+        id = url[2].split(/[^0-9a-z_\-]/i);
+        id = id[0];
+    } 
+    var src = "https://www.youtube.com/embed/" + id + "?start=1";
+    if (id) {
+        $('#serviceVideo iframe').attr('src',src).attr('data-sermon',startsec);
+        var w = $('#serviceVideo iframe').width();
+        var h = (315/560) * w;
+        $('#serviceVideo iframe').height(h + 'px');
+        $(window).resize(function(){
+          var w = $('#serviceVideo iframe').width();
+        var h = (315/560) * w;
+          $('#serviceVideo iframe').height(h + 'px');
+        });
     }
 
-    return ID;
+    return id;
 
 }
