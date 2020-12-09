@@ -373,13 +373,20 @@ function getLastVideo() {
     var title = lastvideo[0].c[titleCol].v; 
     var beginsat = lastvideo[0].c[videoNoteCol].v;
     if (beginsat) { beginsat = '(Sermon begins at ' + beginsat + ')';}
-    var id = videourl.split('/').pop();
+    //var id = videourl.split('/').pop();
     
     $('.serviceInfo div.theTitle').html(title);
     $('.serviceInfo div.theDate').html(thedate);
     $('.serviceInfo div.theBegins').html(beginsat);
     $('.serviceInfo div.thePreacher').html(preacher);
 
-    return id;
+    var ID = '';
+    url = videourl.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+    if(url[2] !== undefined) {
+        ID = url[2].split(/[^0-9a-z_\-]/i);
+        ID = ID[0];
+    }
+
+    return ID;
 
 }
