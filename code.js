@@ -380,4 +380,6 @@ function getLastVideo() {
     $('.serviceInfo div.theBegins').html(beginsat);
     $('.serviceInfo div.thePreacher').html(preacher);
 
+    return videourl;
+
 }
