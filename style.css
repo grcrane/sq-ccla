@@ -258,29 +258,33 @@ div#services .serviceList ul {
   font-size: 21px;
 }
 
-.theDate::before {
+div.theDate::before {
   content: '\00a0- ';
 }
 
-.theTitle {
+div.theTitle {
   display: inline-block;
   font-weight: bolder;
 }
 
-.theDate {
+div.theDate {
   display: inline-block;
   font-style: italic;
 }
 
-.theDate::before {
+div.theDate::before {
   content: "\00a0 - ";
 
 }
 
-.thePreacher,
-.theDate {
+div.thePreacher,
+div.theDate {
   font-size: 18px;
   font-style: italic;
+}
+
+div.theBegins {
+    display: block;
 }
 
 form label {
@@ -304,7 +308,7 @@ form#selectOptions {
 }
 
 form#selectOptions select {
-  max-width: 150px;
+  /*max-width: 150px;*/
 }
 
 form#selectOptions input {
