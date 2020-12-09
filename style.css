@@ -259,10 +259,15 @@ div#services .serviceList ul {
 }
 
 #serviceVideo {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 0;
 }
+
+#serviceVideo h4{
+    text-align: center;
+}
+
 #serviceInfo {
     margin-top: 10px;
 }
