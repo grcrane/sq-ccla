@@ -410,14 +410,11 @@ function getLastVideo() {
     }
 
     $('#serviceGo').click(function(event) {
-        event.preventdefault;
-        var scroll = $(window).scrollTop();
+        event.preventDefault();
         startsec = $('#serviceVideo iframe').data('sermon');
         src = $('#serviceVideo iframe').data('src');
         $('#serviceVideo iframe').prop('src',base + '?autoplay=1&start=' + startsec);
         $('#serviceVideo iframe').prop('data-play',1);
-        $("html").scrollTop(scroll);
-
     })
 
     return id;
