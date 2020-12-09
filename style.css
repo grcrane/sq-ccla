@@ -258,6 +258,19 @@ div#services .serviceList ul {
   font-size: 21px;
 }
 
+#serviceVideo {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+#serviceInfo {
+    margin-top: 10px;
+}
+#serviceVideo #serviceInfo span.serviceTitle,
+#serviceVideo #serviceInfo span.serviceBegins {
+    font-style: italic;
+}
+
 div.theDate::before {
   content: '\00a0- ';
 }
