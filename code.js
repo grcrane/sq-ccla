@@ -380,10 +380,11 @@ function getLastVideo() {
         var startsec = 1; 
         if (start.length > 0) { startsec = +start[0] * 60;}
         if (start.length > 1) {startsec = +startsec + +start[1];}
+        $('.serviceInfo div.theBegins').html('Sermon begins at ' + beginsat + ' ' + '<a id="serviceGo" href="#">(Start play)</a>');
     }
     $('.serviceInfo div.theTitle').html(title);
     $('.serviceInfo div.theDate').html(thedate);
-    $('.serviceInfo div.theBegins').html('(Sermon begins at ' + beginsat + ')');
+    
     $('.serviceInfo div.thePreacher').html(preacher);
 
     var id = '';
@@ -392,9 +393,12 @@ function getLastVideo() {
         id = url[2].split(/[^0-9a-z_\-]/i);
         id = id[0];
     } 
-    var src = "https://www.youtube.com/embed/" + id + "?start=1";
+    var base = "https://www.youtube.com/embed/" + id;
+    var src = base + "?start=1";
     if (id) {
-        $('#serviceVideo iframe').attr('src',src).attr('data-sermon',startsec);
+        $('#serviceVideo iframe').attr('src',src)
+            .attr('data-sermon',startsec)
+            .attr('data-src',src);
         var w = $('#serviceVideo iframe').width();
         var h = (315/560) * w;
         $('#serviceVideo iframe').height(h + 'px');
@@ -404,6 +408,14 @@ function getLastVideo() {
           $('#serviceVideo iframe').height(h + 'px');
         });
     }
+
+    $('#serviceGo').click(function(event) {
+        event.preventdefault;
+        startsec = $('#serviceVideo iframe').data('sermon');
+        src = $('#serviceVideo iframe').data('src');
+        $('#serviceVideo iframe').prop('src',base + '?autoplay=1&start=' + startsec);
+        $('#serviceVideo iframe').prop('data-play',1);
+    })
 
     return id;
 
