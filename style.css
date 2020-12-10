@@ -206,8 +206,12 @@ div.slideCaption {
    display: block;
   }
 
-.item-pagination-link {
+/*.item-pagination-link {
     display: none;
+}*/
+
+h2.item-pagination-title {
+  font-size: 1.2em;
 }
 
 /* ------------------------------------------------ */
@@ -333,4 +337,10 @@ form#selectOptions input {
   font-size: 18px;
   display: block;
   margin-top: 5px;
+}
+
+@media only screen and (max-width: 667px) {
+  form#selectOptions select {
+      max-width: 150px;
+  }
 }
