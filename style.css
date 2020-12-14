@@ -339,6 +339,10 @@ form#selectOptions input {
   margin-top: 5px;
 }
 
+#serviceVideo h4 a {
+  text-decoration: underline;
+}
+
 @media only screen and (max-width: 667px) {
   form#selectOptions select {
       max-width: 150px;
