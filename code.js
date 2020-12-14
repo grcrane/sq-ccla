@@ -382,6 +382,7 @@ function getLastVideo() {
         if (start.length > 0) { startsec = +start[0] * 60;}
         if (start.length > 1) {startsec = +startsec + +start[1];}
         $('.serviceInfo div.theBegins').html('Sermon begins at ' + beginsat + ' ' + '<a id="serviceGo" href="#">(Start play)</a>');
+        $('#serviceVideo h4').html('<a href="#">Watch a recent sermon</a>');
     }
     $('.serviceInfo div.theTitle').html(title);
     $('.serviceInfo div.theDate').html(thedate);
@@ -410,7 +411,7 @@ function getLastVideo() {
         });
     }
 
-    $('#serviceGo').click(function(event) {
+    $('#serviceGo, #serviceVideo h4').click(function(event) {
         event.preventDefault();
         startsec = $('#serviceVideo iframe').data('sermon');
         src = $('#serviceVideo iframe').data('src');
