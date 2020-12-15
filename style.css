@@ -48,16 +48,17 @@ body[data-menu-overlay-theme-switcher="true"]:not(.header--menu-open)
 /* Back to all events button link                                      */
 /* ------------------------------------------------------------------- */
 
-// Remove <- Back to all Events link
+/* Remove <- Back to all Events link */
 .eventitem-backlink {
   display: none;
 }
+
 
 /* ------------------------------------------------------------------- */
 /* Filter checkboxes for programs, events                              */
 /* ------------------------------------------------------------------- */
 
-// Filter flexbox
+/* Filter flexbox */
 #filterContainer .flexBox {
     display: flex;
     flex-wrap: wrap;
