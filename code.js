@@ -378,12 +378,14 @@ function getLastVideo() {
         var patt = new RegExp("^[0-9]*[:]?[0-9]*$");
         var res = patt.test(beginsat);
         var start = beginsat.split(':');  
-        var startsec = 1; // minimum 1 second, otherwise it doesn't work
-        var min = 0; 
-        var hrs = 0; 
-        if (start.length) {startsec = +startsec + +start.pop();}  // seconds
-        if (start.length) {startsec +startsec +  +(start.pop() * 60);} // minutes to seconds
-        if (start.length) {startsec +startsec + +(start.pop() * 60 * 60);} // hours to seconds
+        var startsec = 0; 
+        var min = 0;
+        var hrs = 0;
+        if (start.length) {startsec = start.pop();}
+        if (start.length) {min = start.pop();}
+        if (start.length) {hrs = start.pop();}
+        startsec = +startsec + +(min * 60) + +(hrs * 60 * 60);
+        if (!startsec) {startsec = 1;}
         $('.serviceInfo div.theBegins').html('Sermon begins at ' + beginsat + ' ' + '<a id="serviceGo" href="#">(Start play)</a>');
         $('#serviceVideo h4').html('<a href="#">Watch a recent sermon</a>');
     }
