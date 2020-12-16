@@ -381,9 +381,9 @@ function getLastVideo() {
         var startsec = 1; // minimum 1 second, otherwise it doesn't work
         var min = 0; 
         var hrs = 0; 
-        if (start.length) {startsec = +startsec + start.pop();}  // seconds
-        if (start.length) {startsec +startsec +  (+start.pop() * 60);} // minutes to seconds
-        if (start.length) {startsec +startsec + (+start.pop() * 60 * 60);} // hours to seconds
+        if (start.length) {startsec = +startsec + +start.pop();}  // seconds
+        if (start.length) {startsec +startsec +  +(start.pop() * 60);} // minutes to seconds
+        if (start.length) {startsec +startsec + +(start.pop() * 60 * 60);} // hours to seconds
         $('.serviceInfo div.theBegins').html('Sermon begins at ' + beginsat + ' ' + '<a id="serviceGo" href="#">(Start play)</a>');
         $('#serviceVideo h4').html('<a href="#">Watch a recent sermon</a>');
     }
