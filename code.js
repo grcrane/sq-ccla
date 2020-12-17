@@ -305,7 +305,7 @@ function getServiceFromGoogle() {
             if (filetype == 'pdf') {
                 notes = ' (pdf)';
             }
-            str = str + '<li class="serviceItem"><a href=' + url + '>Read the Service Bulletin' + notes + '</a></li>';
+            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Read the Service Bulletin' + notes + '</a></li>';
         }
         if (item.c[lessonCol] != null) {
             var url = item.c[lessonCol].v;
@@ -317,7 +317,7 @@ function getServiceFromGoogle() {
             if (filetype == 'pdf') {
                 notes = notes + ' (pdf)';
             }
-            str = str + '<li class="serviceItem"><a href=' + url + '>Read the Lesson' + notes + '</a></li>';
+            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Read the Lesson' + notes + '</a></li>';
         }
         if (item.c[ref1Col] != null) {
             var url = item.c[ref1Col].v;
@@ -329,7 +329,7 @@ function getServiceFromGoogle() {
             if (filetype == 'pdf') {
                 notes = notes + ' (pdf)';
             }
-            str = str + '<li class="serviceItem"><a href="' + url + '">' + notes + '</a></li>';
+            str = str + '<li class="serviceItem"><a target="blank" href="' + url + '">' + notes + '</a></li>';
         }
         if (item.c[sermonCol] != null && item.c[sermonCol].v != null) {
             var url = item.c[sermonCol].v;
@@ -341,7 +341,7 @@ function getServiceFromGoogle() {
             if (filetype == 'pdf') {
                 notes = notes + ' (pdf)';
             }
-            str = str + '<li class="serviceItem"><a href=' + url + '>Read the Sermon' + notes + '</a></li>';
+            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Read the Sermon' + notes + '</a></li>';
         }
         var notes = '';
         if (item.c[videoNoteCol] != null && item.c[videoNoteCol].v != null) {
@@ -349,7 +349,7 @@ function getServiceFromGoogle() {
         }
         if (item.c[videoCol] != null) {
             var url = item.c[videoCol].v;
-            str = str + '<li class="serviceItem"><a href=' + url + '>Watch the Sermon' + notes + '</a></li>';
+            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Watch the Sermon' + notes + '</a></li>';
         }
         str = str + '</ul>';
         $('#services').append(str);
