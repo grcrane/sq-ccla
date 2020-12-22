@@ -27,6 +27,17 @@ var ref1NoteCol = 14;
 
 function doGalleryShow() {
 
+    /* Don't do the fancy gallery if we are in IE 11 or earlier */
+    /*
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE '); // IE 10 and older
+    var trident = ua.indexOf('Trident/'); // IE 11
+    if (msie > 0 || trident > 0) {
+        var gallery = $('#page  article:first-child section.gallery-section').first().find('figure');
+        gallery.closest('section').css('display', 'none'); 
+        return;
+    }
+    */
     // get some selectors and data 
     var background = $('#page article:first-child section:first-child div.section-background');
     var gallery = $('#page  article:first-child section.gallery-section').first().find('figure');
@@ -129,8 +140,15 @@ function filter_showvals () {
         $('div.summary-item').css('display','none');
     }
 
+    // make sure ids only has unique values
+    var t = [];
+    for(var x = 0; x < ids.length; x++){
+        if(t.indexOf(ids[x]) == -1) {t.push(ids[x]);}
+    }
+    ids = t;
+
     $('div.summary-item').each(function(index, value) {
-        xidsx = [...ids]; // copy the array of checked items
+        xidsx = ids; // copy the array of checked items
         $(this).find('div.summary-content div.summary-metadata-container div.summary-metadata span.summary-metadata-item--cats a').filter(function (index2) {
             var t = this.href.indexOf('?category=');
             var i = xidsx.indexOf(this.href.substr(t+10));
