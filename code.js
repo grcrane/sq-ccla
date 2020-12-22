@@ -215,7 +215,8 @@ return result;
 /* and construct list with links                               */
 /* ----------------------------------------------------------- */
 
-function processList(what = null) {
+//function processList(what = null) {
+function processList(what) {
 
     if (what == 'clear') {
         $('#year').html('');
