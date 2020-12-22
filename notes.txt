@@ -40,3 +40,21 @@ jQuery(document).ready(function() {
   <div id="services">
   </div>
 </div>
+
+---- Test for older versions of IE  12/22/20
+
+<script>
+$( document ).ready(function() {
+  var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE '); // IE 10 and older
+  
+    var trident = ua.indexOf('Trident/'); // IE 11
+  if (msie == -1 && trident == -1) { 
+    doGalleryShow();
+  }
+  else {
+    var gallery = $('#page  article:first-child section.gallery-section').first().find('figure');
+    gallery.closest('section').css('display', 'none'); 
+  } 
+})
+</script>
