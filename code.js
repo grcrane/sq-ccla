@@ -330,7 +330,7 @@ function getServiceFromGoogle() {
             if (filetype == 'pdf') {
                 notes = ' (pdf)';
             }
-            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Read the Service Bulletin' + notes + '</a></li>';
+            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Read the service bulletin' + notes + '</a></li>';
         }
         if (item.c[lessonCol] != null) {
             var url = item.c[lessonCol].v;
@@ -342,7 +342,7 @@ function getServiceFromGoogle() {
             if (filetype == 'pdf') {
                 notes = notes + ' (pdf)';
             }
-            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Read the Lesson' + notes + '</a></li>';
+            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Read the lesson' + notes + '</a></li>';
         }
         if (item.c[ref1Col] != null) {
             var url = item.c[ref1Col].v;
@@ -366,7 +366,7 @@ function getServiceFromGoogle() {
             if (filetype == 'pdf') {
                 notes = notes + ' (pdf)';
             }
-            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Read the Sermon' + notes + '</a></li>';
+            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Read the sermon' + notes + '</a></li>';
         }
         var notes = '';
         if (item.c[videoNoteCol] != null && item.c[videoNoteCol].v != null) {
@@ -374,7 +374,7 @@ function getServiceFromGoogle() {
         }
         if (item.c[videoCol] != null) {
             var url = item.c[videoCol].v;
-            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Watch the Sermon' + notes + '</a></li>';
+            str = str + '<li class="serviceItem"><a target="blank" href=' + url + '>Watch the service' + notes + '</a></li>';
         }
         str = str + '</ul>';
         $('#services').append(str);
