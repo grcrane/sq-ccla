@@ -370,7 +370,7 @@ function getServiceFromGoogle() {
         }
         var notes = '';
         if (item.c[videoNoteCol] != null && item.c[videoNoteCol].v != null) {
-            notes = ' (' + item.c[videoNoteCol].v + ')';
+            notes = ' (Sermon begins at ' + item.c[videoNoteCol].v + ')';
         }
         if (item.c[videoCol] != null) {
             var url = item.c[videoCol].v;
