@@ -390,9 +390,18 @@ function getLastVideo() {
     lastvideo = temp.table.rows;
     var thedate = lastvideo[0].c[0].f;
     var videourl = lastvideo[0].c[videoCol].v;
-    var preacher = lastvideo[0].c[preacherCol].v;
-    var title = lastvideo[0].c[titleCol].v; 
-    var beginsat = lastvideo[0].c[videoNoteCol].v;
+    var preacher = '';
+    if (lastvideo[0].c[preacherCol] != null) {
+        preacher = lastvideo[0].c[preacherCol].v;
+    }
+    var title = '';
+    if (lastvideo[0].c[titleCol] != null) {
+        title = lastvideo[0].c[titleCol].v; 
+    }
+    var beginsat = '';
+    if (lastvideo[0].c[videoNoteCol] != null) {
+        beginsat = lastvideo[0].c[videoNoteCol].v;
+    }
     if (beginsat) { 
         var patt = new RegExp("^[0-9]*[:]?[0-9]*$");
         var res = patt.test(beginsat);
