@@ -305,8 +305,14 @@ function getServiceFromGoogle() {
         thetitle = 'Unknown title';
         var thedate = '';
         var thepreacher = '';
-        var thetime = item.c[timeCol].v;
-        var thetype = item.c[typeCol].v;
+        var thetime = ''; 
+        if (item.c[timeCol] != null) {
+            thetime = item.c[timeCol].v;
+        }
+        var thetype = '';
+        if (thetype = item.c[typeCol] != null) {
+            thetype = item.c[typeCol].v;
+        }
         if (item.c[titleCol] != null) {
             thetitle = '<div class=theTitle>' + item.c[titleCol].v + '</div>';
         }
