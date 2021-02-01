@@ -58,3 +58,107 @@ $( document ).ready(function() {
   } 
 })
 </script>
+
+----- Generate MailChimp html page body code
+
+<h3 class="statusMessage">Click the start button to harvest information.</h3>
+<button id="startGather" onclick="do_get_mailchimp()">Start</button>
+<button id="copyToClip" onclick="copyToClipboard('div#contentData-wrapper')">Copy to clipboard</button>
+<textarea placeholder="insert html" ></textarea>
+
+<ul id="thedata"></ul>
+<div id="contentData-wrapper">
+<style>
+div#contentData-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    border: 1px solid black;
+    padding: 10px;
+    font-family: Helvetica;
+    font-size: 16px;
+    display: none;
+}
+h2.sectionType {
+    text-align: left;
+    font-weight: normal;
+    color: #0000CD;
+    font-size: 32px;
+    margin: 24px 0 24px 0;
+}
+img.theimg {
+    width: 150px;
+    height: 120px !important;
+    object-fit: cover;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-top: 5px;
+}
+
+div.contentData:not(:first-child) {
+    margin-top: 24px;
+}
+
+div.contentData:after {
+content: "";
+clear: both;
+display: table; }
+
+p.contentData {
+    margin: 0;
+    padding: 0;
+
+}
+div.title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #4B0082;
+}
+.datetime {
+    font-style: italic;
+    font-size: .9em;
+}
+
+.startdate {
+    color: black;
+    font-weight: 700;
+}
+
+textarea {
+   width: 100%;
+   height: 100px;
+   display: none;
+}
+textarea.active {
+    display: block;
+}
+button {
+    background-color: #224ba2;
+    color: #fff;
+    padding: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+button#copyToClip {
+    display: none;
+}
+button.active {
+    display: block; 
+}
+
+p {
+    white-space: normal !important;
+}
+
+div.contentData > p:first-of-type {
+    margin-top: 0; 
+}
+
+div.clearBoth {
+    height: 0;
+}
+
+</style>
+</div>
