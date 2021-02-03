@@ -36,6 +36,42 @@ body[data-menu-overlay-theme-switcher="true"]:not(.header--menu-open)
 }
 
 /* ------------------------------------------------------------------- */
+/* Generate Mailchimp code                                             */
+/* ------------------------------------------------------------------- */
+
+#MailChimp-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    border: 1px solid black;
+    padding: 10px;
+    font-family: Helvetica;
+    font-size: 16px;
+    display: none;
+}
+#controls-wrapper textarea {
+   width: 100%;
+   height: 100px;
+   display: none;
+}
+#controls-wrapper textarea.active {
+    display: block;
+}
+#controls-wrapper button {
+    background-color: #224ba2;
+    color: #fff;
+    padding: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+#controls-wrapper button#copyToClip {
+    display: none;
+}
+#controls-wrapper button.active {
+    display: block; 
+}
+
+/* ------------------------------------------------------------------- */
 /* Button color                                                        */
 /* ------------------------------------------------------------------- */
 
