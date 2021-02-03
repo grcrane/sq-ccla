@@ -2,6 +2,7 @@
 /* Generate MailChimp html                                     */
 /* ----------------------------------------------------------- */
 
+jQuery( document ).ready(function() {
 var thestyles = '<style>' + 
 'h2.sectionType{text-align: left;font-weight: normal;color: #0000CD;font-size: 32px;margin: 24px 0 24px 0}' + 
 'img.theimg{width: 150px;height: 120px !important;object-fit: cover;float: left;margin: 5px 10px 5px 5px}' +
@@ -161,3 +162,4 @@ function do_get_mailchimp() {
     $('div#MailChimp-wrapper').css('display','block');
     $('button#copyToClip').css('display','block');
 }
+});
