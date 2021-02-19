@@ -10,7 +10,7 @@ var thestyles = '<style>' +
 'p.contentData{margin: 0;padding: 0}div.title{font-weight: bold;font-size: 16px;color: #4B0082}' + 
 '.datetime{font-style: italic;font-size: .9em}' + 
 '.startdate{color: black;font-weight: 700}' + 
-'p{white-space: normal !important}' + 
+'div.contentData p{white-space: normal !important}' + 
 'div.contentData > p:first-of-type{margin-top: 0}' +
 '</style>';
 
@@ -126,6 +126,7 @@ function do_get_mailchimp() {
                             out = out + '<img class="theimg" src="' + imgsrc + '">';
                         } 
                         contentData = contentData.replace('<p></p>','');
+                        contentData = contentData.replace('white-space:pre-wrap;','white-space:normal;');
                         contentData = contentData.replace('<strong></strong>','');
                         contentData = contentData.replace('<strong> </strong>','');
                         contentData = contentData.replace('<em></em>','');                           
@@ -147,6 +148,7 @@ function do_get_mailchimp() {
                             out = out + '<img class="theimg" src="' + imgsrc + '">';
                         }                           
                         contentData = contentData.replace('<p></p>','');
+                        contentData = contentData.replace('white-space:pre-wrap;','white-space:normal;');
                         contentData = contentData.replace('<strong></strong>','');
                         contentData = contentData.replace('<strong> </strong>','');
                         contentData = contentData.replace('<em></em>','');                            
