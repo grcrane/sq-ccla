@@ -100,7 +100,7 @@ function do_get_mailchimp() {
                     $('#MailChimp-wrapper').append('<h2 class="sectionType">' + thename + '</h2>');
                     prevsection = thetype;
                 }
-                if (d.length) {
+                if (d.length && d != 'undefined') {
                     if (thetype == 'events-list' || thetype == 'vestry-connections'
                         || thetype == 'services') {                           
                         var event = $.parseHTML(d);
@@ -129,8 +129,8 @@ function do_get_mailchimp() {
                         contentData = contentData.replace(/white-space:pre-wrap;/gi,'white-space:normal;'); 
                         contentData = contentData.replace(/\<strong\>(\s+)*\<\/strong>/gi,''); 
                         contentData = contentData.replace(/\<em\>\<\/em\>/gi,'');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\./gi,'.');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\,/gi,',');                          
+                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\./gi,'</a>.');  
+                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\,/gi,'</a>,');                          
                         out = out + contentData + "</div>";
                         $('#MailChimp-wrapper').append(out);                            
                     }                        
@@ -152,8 +152,8 @@ function do_get_mailchimp() {
                         contentData = contentData.replace(/white-space:pre-wrap;/gi,'white-space:normal;'); 
                         contentData = contentData.replace(/\<strong\>(\s+)*\<\/strong>/gi,''); 
                         contentData = contentData.replace(/\<em\>\<\/em\>/gi,'');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\./gi,'.');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\,/gi,',');                             
+                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\./gi,'</a>.');  
+                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\,/gi,'</a>,');                             
                         out = out + contentData + "</div>";
                         $('#MailChimp-wrapper').append(out);                           
                     }
