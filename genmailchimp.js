@@ -129,8 +129,8 @@ function do_get_mailchimp() {
                         contentData = contentData.replace(/white-space:pre-wrap;/gi,'white-space:normal;'); 
                         contentData = contentData.replace(/\<strong\>(\s+)*\<\/strong>/gi,''); 
                         contentData = contentData.replace(/\<em\>\<\/em\>/gi,'');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]+\./gi,'\<\/a\>xxx');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]+\,/gi,'\<\/a\>yyy');                          
+                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\./gi,'\<\/a\>xxx');  
+                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\,/gi,'\<\/a\>yyy');                          
                         out = out + contentData + "</div>";
                         $('#MailChimp-wrapper').append(out);                            
                     }                        
@@ -152,8 +152,8 @@ function do_get_mailchimp() {
                         contentData = contentData.replace(/white-space:pre-wrap;/gi,'white-space:normal;'); 
                         contentData = contentData.replace(/\<strong\>(\s+)*\<\/strong>/gi,''); 
                         contentData = contentData.replace(/\<em\>\<\/em\>/gi,'');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]+\./gi,'\<\/a\>xxx');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]+\,/gi,'\<\/a\>yyy');                             
+                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\./gi,'\<\/a\>xxx');  
+                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\,/gi,'\<\/a\>yyy');                             
                         out = out + contentData + "</div>";
                         $('#MailChimp-wrapper').append(out);                           
                     }
