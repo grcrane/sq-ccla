@@ -96,7 +96,7 @@ function do_get_mailchimp() {
                     if (thetype == 'announcement-items') {thename = 'Announcements';}
                     if (thetype == 'vestry-connections') {thename = 'Vestry Connections';}
                     if (thetype == 'vestry-connections') {thename = 'Vestry Connections';}
-                    if (thetype == 'mailchimp-only-items') {thename = 'Mailchimp Only Items';}
+                    if (thetype == 'xmailchimp-only-items') {thename = 'Mailchimp Only Items';}
                     $('#MailChimp-wrapper').append('<h2 class="sectionType">' + thename + '</h2>');
                     prevsection = thetype;
                 }
