@@ -125,11 +125,12 @@ function do_get_mailchimp() {
                         if (imgsrc) {
                             out = out + '<img class="theimg" src="' + imgsrc + '">';
                         } 
-                        contentData = contentData.replace('<p></p>','');
-                        contentData = contentData.replace('white-space:pre-wrap;','white-space:normal;');
-                        contentData = contentData.replace('<strong></strong>','');
-                        contentData = contentData.replace('<strong> </strong>','');
-                        contentData = contentData.replace('<em></em>','');                           
+                        contentData = contentData.replace(/\<p\>\<\/p\>/gi,'');  
+                        contentData = contentData.replace(/white-space:pre-wrap;/gi,'white-space:normal;'); 
+                        contentData = contentData.replace(/\<strong\>(\s)*\<\/strong>/gi,''); 
+                        contentData = contentData.replace(/\<em\>\<\/em\>/gi,'');  
+                        contentData = contentData.replace(/\<\/a\>(\s+)\./gi,'.');   
+                        contentData = contentData.replace(/\<\/a\>(\s+)\,/gi,',');                          
                         out = out + contentData + "</div>";
                         $('#MailChimp-wrapper').append(out);                            
                     }                        
@@ -147,11 +148,12 @@ function do_get_mailchimp() {
                         if (imgsrc) {
                             out = out + '<img class="theimg" src="' + imgsrc + '">';
                         }                           
-                        contentData = contentData.replace('<p></p>','');
-                        contentData = contentData.replace('white-space:pre-wrap;','white-space:normal;');
-                        contentData = contentData.replace('<strong></strong>','');
-                        contentData = contentData.replace('<strong> </strong>','');
-                        contentData = contentData.replace('<em></em>','');                            
+                        contentData = contentData.replace(/\<p\>\<\/p\>/gi,'');  
+                        contentData = contentData.replace(/white-space:pre-wrap;/gi,'white-space:normal;'); 
+                        contentData = contentData.replace(/\<strong\>(\s)*\<\/strong>/gi,''); 
+                        contentData = contentData.replace(/\<em\>\<\/em\>/gi,'');  
+                        contentData = contentData.replace(/\<\/a\>(\s+)\./gi,'.');   
+                        contentData = contentData.replace(/\<\/a\>(\s+)\,/gi,',');                           
                         out = out + contentData + "</div>";
                         $('#MailChimp-wrapper').append(out);                           
                     }
