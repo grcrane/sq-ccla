@@ -50,9 +50,20 @@ function formatFactory(html) {
     };   
     return parse(html.replace(/(\r\n|\n|\r)/gm," ").replace(/ +(?= )/g,''));
 }; 
-
+function cleanup(beautify) {
+    beautify = beautify.replace(/\<p\>\<\/p\>/gi,'');  
+    beautify = beautify.replace(/white-space:pre-wrap;/gi,'white-space:normal;'); 
+    beautify = beautify.replace(/\<strong\>(\s+)*\<\/strong>/gi,''); 
+    beautify = beautify.replace(/\<em\>\<\/em\>/gi,'');  
+    beautify = beautify.replace(/\<\/a\>[\s\r\n\t]*\./gi,'\<\/a\>.');  
+    beautify = beautify.replace(/\<\/a\>[\s\r\n\t]*\,/gi,'\<\/a\>,'); 
+    beautify = beautify.replace(/\t*/gi,'');  
+    return beautify; 
+}
+  
 function copyToClipboard(selector) {
   var beautify = formatFactory($(selector).html());
+  beautify = cleanup(beautify); 
   $('textarea').addClass('active')
   $('textarea').val(beautify);
   $('textarea').select();
@@ -100,13 +111,16 @@ function do_get_mailchimp() {
                     $('#MailChimp-wrapper').append('<h2 class="sectionType">' + thename + '</h2>');
                     prevsection = thetype;
                 }
+              console.log('thetype=' + thetype); 
+              console.log('d=' + d); 
                 if (d.length && d != 'undefined') {
                     if (thetype == 'events-list' || thetype == 'vestry-connections'
                         || thetype == 'services') {                           
                         var event = $.parseHTML(d);
                         var title = $(event).find('article.eventitem h1.eventitem-title').text();
                         var startdate = $(event).find('article.eventitem time.event-date').eq(0).text();
-                        var starttime = $(event).find('article.eventitem .eventitem-meta-time').eq(0).text();
+                        var starttime = $(event).find('article.eventitem .eventitem-meta-time time').eq(0).text();
+                        starttime = starttime.replace('PM','p.m.');
                         var enddate = $(event).find('article.eventitem time.event-date').eq(1).text();
                         var endtime = $(event).find('article.eventitem span.eventitem-meta-time').eq(1).find('time.event-time-12hr').text();                           
                         var contentDataitems = $(event).find('article div.html-block div.sqs-block-content').eq(0).html();                           
@@ -125,13 +139,8 @@ function do_get_mailchimp() {
                         if (imgsrc) {
                             out = out + '<img class="theimg" src="' + imgsrc + '">';
                         } 
-                        contentData = contentData.replace(/\<p\>\<\/p\>/gi,'');  
-                        contentData = contentData.replace(/white-space:pre-wrap;/gi,'white-space:normal;'); 
-                        contentData = contentData.replace(/\<strong\>(\s+)*\<\/strong>/gi,''); 
-                        contentData = contentData.replace(/\<em\>\<\/em\>/gi,'');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\./gi,'\<\/a\>.');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\,/gi,'\<\/a\>,'); 
-                        contentData = contentData.replace(/\t*/gi,'');                  
+
+                        contentData = cleanup(contentData);      
                         out = out + contentData + "</div>";
                         $('#MailChimp-wrapper').append(out);                            
                     }                        
@@ -148,14 +157,8 @@ function do_get_mailchimp() {
                         '<div class="title">' + title + '</div>';
                         if (imgsrc) {
                             out = out + '<img class="theimg" src="' + imgsrc + '">';
-                        }                           
-                        contentData = contentData.replace(/\<p\>\<\/p\>/gi,'');  
-                        contentData = contentData.replace(/white-space:pre-wrap;/gi,'white-space:normal;'); 
-                        contentData = contentData.replace(/\<strong\>(\s+)*\<\/strong>/gi,''); 
-                        contentData = contentData.replace(/\<em\>\<\/em\>/gi,'');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\./gi,'\<\/a\>.');  
-                        contentData = contentData.replace(/\<\/a\>[\s\r\n\t]*\,/gi,'\<\/a\>,');  
-                        contentData = contentData.replace(/\t*/gi,'');                          
+                        }  
+                        contentData = cleanup(contentData); 
                         out = out + contentData + "</div>";
                         $('#MailChimp-wrapper').append(out);                           
                     }
@@ -166,4 +169,3 @@ function do_get_mailchimp() {
     $('.statusMessage').text('All done.');
     $('div#MailChimp-wrapper').css('display','block');
     $('button#copyToClip').css('display','block');
-}
