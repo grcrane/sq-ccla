@@ -169,3 +169,4 @@ function do_get_mailchimp() {
     $('.statusMessage').text('All done.');
     $('div#MailChimp-wrapper').css('display','block');
     $('button#copyToClip').css('display','block');
+}
