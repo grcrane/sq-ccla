@@ -84,6 +84,8 @@ function getData(theurl) {
 }
 
 function do_get_mailchimp() {
+    var sections = [];
+    var sectionData = [];
     var url = '/mailchimp-list';
     //var url = 'mailchimp_list.html';
     var res = getData(url);
@@ -100,7 +102,14 @@ function do_get_mailchimp() {
                 var src = $(this).find('.summary-title a').attr('href').substr(1);
                 var d = getData(src);
                 var look = src.split('/');
-                var thetype = look[0];                
+                var thetype = look[0]; 
+                var i = sections.indexOf(thetype);
+
+                if(i == -1) {  
+                   sections.push(thetype);
+                   sectionData.push([]);
+                }
+
                 if (thetype != prevsection) {
                     var thename = 'Upcoming Events';
                     if (thetype == 'services') {thename = 'Services';}
@@ -108,6 +117,7 @@ function do_get_mailchimp() {
                     if (thetype == 'vestry-connections') {thename = 'Vestry Connections';}
                     if (thetype == 'vestry-connections') {thename = 'Vestry Connections';}
                     if (thetype == 'mailchimp-only-items') {thename = 'Mailchimp Only Items';}
+                    if (thetype == 'sermon-information') {thename = 'Past Services';}
                     $('#MailChimp-wrapper').append('<h2 class="sectionType">' + thename + '</h2>');
                     prevsection = thetype;
                 }
@@ -141,11 +151,16 @@ function do_get_mailchimp() {
 
                         contentData = cleanup(contentData);      
                         out = out + contentData + "</div>";
-                        $('#MailChimp-wrapper').append(out);                            
+                        $('#MailChimp-wrapper').append(out);   
+                        var i = sections.indexOf(thetype);
+                        //console.log('i=' + i + ' thetype=' + thetype);
+                        sectionData[i].push(out);
+
                     }                        
                     var i = src.indexOf('announcement-items/');                        
                     if (thetype == 'announcement-items' || thetype == 'twelve-days-of-christmas'
-                        || thetype == 'mailchimp-only-items') {                           
+                        || thetype == 'mailchimp-only-items'
+                        || thetype == 'sermon-information') {                           
                         var event = $.parseHTML(d);
                         var title = $(event).find('div.blog-item-wrapper h1.entry-title').text();
                         contentData = ''; 
@@ -159,7 +174,10 @@ function do_get_mailchimp() {
                         }  
                         contentData = cleanup(contentData); 
                         out = out + contentData + "</div>";
-                        $('#MailChimp-wrapper').append(out);                           
+                        $('#MailChimp-wrapper').append(out); 
+                        var i = sections.indexOf(thetype);
+                        //console.log('i=' + i + ' thetype=' + thetype);
+                        sectionData[i].push(out);                         
                     }
                 }
             })
@@ -168,4 +186,6 @@ function do_get_mailchimp() {
     $('.statusMessage').text('All done.');
     $('div#MailChimp-wrapper').css('display','block');
     $('button#copyToClip').css('display','block');
+    //console.log(sections);
+    //console.log(sectionData);
 }
