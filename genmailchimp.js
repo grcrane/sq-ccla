@@ -111,8 +111,7 @@ function do_get_mailchimp() {
                     $('#MailChimp-wrapper').append('<h2 class="sectionType">' + thename + '</h2>');
                     prevsection = thetype;
                 }
-              console.log('thetype=' + thetype); 
-              console.log('d=' + d); 
+              
                 if (d.length && d != 'undefined') {
                     if (thetype == 'events-list' || thetype == 'vestry-connections'
                         || thetype == 'services') {                           
