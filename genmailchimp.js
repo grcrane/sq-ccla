@@ -6,7 +6,7 @@ var thestyles = '<style>' +
 'h2.sectionType{text-align: left;font-weight: normal;color: #0000CD;font-size: 32px;margin: 24px 0 24px 0}' + 
 'img.theimg{width: 150px;height: 120px !important;object-fit: cover;float: left;margin: 5px 10px 5px 5px}' +
 'div.contentData:not(:first-child){margin-top: 24px}' + 
-'div.contentData:after{content: "";clear: both;display: table}' + 
+'div.contentData{content: "";clear: both;display: table;}' + 
 'p.contentData{margin: 0;padding: 0}div.title{font-weight: bold;font-size: 16px;color: #4B0082}' + 
 '.datetime{font-style: italic;font-size: .9em}' + 
 '.startdate{color: black;font-weight: 700}' + 
