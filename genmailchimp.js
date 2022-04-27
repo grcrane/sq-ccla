@@ -207,7 +207,7 @@ img.theimg{
   margin: 5px 10px 5px 0;
   padding: 0;}
 div.contentData:not(:first-child){margin-top: 24px}
-div.contentData{content: "";clear: both;display: table;}
+div.contentData{content: "";clear: both;}
 p.contentData{margin: 0;padding: 0}div.title{font-weight: bold;font-size: 16px;color: #4B0082}
 .datetime{font-style: italic;font-size: .9em}
 .startdate{color: black;font-weight: 700}
