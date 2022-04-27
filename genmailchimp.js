@@ -402,7 +402,7 @@ function theMailchimpCallback(selectorID,json, attr) {
     </div>`;
 
   $(selectorID).append(thestyles2);
-  $(selectorID).append(addit);
+  $(selectorID).prepend(addit);
   $.each(json["items"], function(index, value) {
       // get the data for this blog entry
       theimg = "";
