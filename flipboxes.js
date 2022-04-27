@@ -191,12 +191,11 @@ function formatflexBoxesDisplay(selectorID,json, attr) {
     var href = a[i]['fullUrl'];
     var title = a[i]['title'];
     var tags = ('tags' in a[i]) ? a[i]['tags'] : [];
-    categories = ('categories' in a[i]) ? a[i]['categories'].sort() : []; 
+    categories = ('categories' in a[i]) ? a[i]['categories'].sort() : [];
     //categories = a[i]['categories'].sort();
     $.each(categories,function(index, value) {
       categories[index] = categories[index].toLowerCase().trim();
     })
-    console.log('i=' + i + ' href=' + href + ' title=' + title);
 
     // If we have a list of required categories, then
     // look through the categories and verify
@@ -271,9 +270,9 @@ function process_card_info(selectorID, link,images, caption, label, message) {
     images.forEach(function(img, key) {
       str = str + `<img src="${img}"/>`;
     })
-  
+
     link = (typeof link != 'undefined') ? link : "#";
-    target = (link.startsWith("http")) ? ' target="_blank"' : target; 
+    target = (link.startsWith("http")) ? ' target="_blank"' : target;
     str = str + `<div class="labelText">${caption}</div>
          </div>
          <div class="back face center flip-card-back">
