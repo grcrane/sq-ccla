@@ -16,7 +16,8 @@ div.flipBoxContainer div.flex-container {
     text-align: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    row-gap: 20px;
+    /* row-gap: 20px; */
+    gap: 10px;
 }
 
 div.flipBoxContainer.layout2 div.flex-container {
@@ -26,7 +27,8 @@ div.flipBoxContainer.layout2 div.flex-container {
   text-align: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  row-gap: 20px;
+  /*row-gap: 20px;*/
+  gap:  10px;
 }
 
 
@@ -82,7 +84,7 @@ div.flipBoxContainer div.flex-container .flip-card-inner {
     transform-style: preserve-3d;
 }
 
-div.flipBoxContainer .flip-card-front, 
+div.flipBoxContainer .flip-card-front,
 div.flipBoxContainer .flip-card-back {
     position: absolute;
     width: 100%;
@@ -135,7 +137,7 @@ div.flipBoxContainer div.flip-card-front img.active {
     filter: alpha(opacity=1);
 }
 
-div.flipBoxContainer .flip-card-front, 
+div.flipBoxContainer .flip-card-front,
 div.flipBoxContainer .flip-card-back {
     position: absolute;
     width: 100%;
@@ -265,7 +267,8 @@ div.flipBoxContainer .centerBack div.backContent div {
     top: 0;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.2em;
+    font-size: 1rem;
+    font-style: italic;
 }
 
 div.flipBoxContainer .centerBack div.backContent p {
@@ -285,22 +288,20 @@ div.flipBoxContainer .centerBack div.backLink span{
     top: 50%;
     transform: translateY(-50%);
 }
-/*
-@media (max-width: 1100px) {
-  div.flipBoxContainer div.flex-container {
-      justify-content: space-around;
-  }
 
-  }
-*/
 @media (max-width: 800px) {
-    .flex-container {
-        flex-direction: column;
+    div.flipBoxContainer div.flex-container div.newColumn {
+        width: calc(50% - 5px);
+        padding-top: clamp(200px,calc(50% - 5px),300px);
     }
+    div.flipBoxContainer div.flex-container {
+      justify-content: center;
+    }
+}
 
-    div.flipBoxContainer div.flex-container div.newColumn { 
+@media (max-width: 640px) {
+
+    div.flipBoxContainer div.flex-container div.newColumn {
         width: 100%;
-        margin-bottom: 20px;
-    }  
-    
+    }
 }
