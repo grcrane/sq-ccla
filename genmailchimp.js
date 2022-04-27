@@ -397,7 +397,7 @@ function theMailchimpCallback(selectorID,json, attr) {
   var starting = '';
   var addit = `
     <div id=controls-wrapper>
-      <button id="copyToClip" onclick="copyToClipboard2('div#MailChimp-wrapper')">Copy to clipboard</button>
+      <button id="copyToClip" onclick="copyToClipboard2('div#${selectorID}')">Copy to clipboard</button>
       <textarea placeholder="insert html" ></textarea>
     </div>`;
 
