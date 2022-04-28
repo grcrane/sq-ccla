@@ -38,10 +38,10 @@ div.flipBoxContainer div.flex-container div.newColumn:only-child {
 
 /* percentage */
 div.flipBoxContainer div.flex-container div.newColumn {
-    width: 30%;
+    width: 32%;
     height: unset;
     /*padding-top clamp is (min, preferred, max) */
-    padding-top: clamp(200px,30%,300px);
+    padding-top: clamp(200px,32%,300px);
     max-width: unset;
     position: relative;
 }
@@ -65,6 +65,7 @@ div.flipBoxContainer div.flex-container div.newColumn .flip-card {
     left: 0;
     right: 0;
     bottom: 0;
+    border-radius: 10px;
 }
 /* end percent */
 
@@ -160,16 +161,6 @@ div.flipBoxContainer .flip-card-back {
 div.flipBoxContainer .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
 }
-/*
-div.flipBoxContainer .centerBack {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 100%;
-}
-*/
 
 div.flipBoxContainer .flip-card-back {
     background-color: dodgerblue;
@@ -178,8 +169,7 @@ div.flipBoxContainer .flip-card-back {
 }
 
 div.flipBoxContainer .flip-card-back {
-    background-color: #005578;
-    /*background-color: rgb(102, 102, 102);*/
+    background-color: rgb(0, 85, 120);
     color: white;
     /*background: linear-gradient(to right,#50bebe 0,#099 50%,#0099b0 83%,#0099cb 100%);*/
 }
@@ -207,7 +197,7 @@ div.flipBoxContainer .flip-card-front .labelText {
 }
 
 div.flipBoxContainer .flip-card-back div.centerBack  .labelText {
-    color: white;
+    color: black;
 }
 
 div.flipBoxContainer .centerBack {
@@ -219,6 +209,7 @@ div.flipBoxContainer .centerBack {
 div.flipBoxContainer .centerBack div.topBox {
   flex-basis: 20%;
   position: relative;
+  background:  wheat;
 }
 
 div.flipBoxContainer .centerBack div.backContent {
@@ -300,8 +291,8 @@ div.flipBoxContainer .centerBack div.backLink span{
 }
 
 @media (max-width: 640px) {
-
     div.flipBoxContainer div.flex-container div.newColumn {
-        width: 100%;
+        width: calc(100% - 17px);
+        padding-top: calc(100% - 17px);
     }
 }
