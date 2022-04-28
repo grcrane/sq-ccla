@@ -207,18 +207,18 @@ div.flipBoxContainer .centerBack {
 }
 
 div.flipBoxContainer .centerBack div.topBox {
-  flex-basis: 20%;
+  flex-basis: 15%;
   position: relative;
   background:  wheat;
 }
 
 div.flipBoxContainer .centerBack div.backContent {
-  flex-basis: 60%;
+  flex-basis: 70%;
   position: relative;
 }
 
 div.flipBoxContainer .centerBack div.backLink {
-  flex-basis: 20%;
+  flex-basis: 15%;
   position: relative;
 }
 
@@ -267,7 +267,6 @@ div.flipBoxContainer .centerBack div.backContent p {
   padding: 10px 0;
 }
 
-
 div.flipBoxContainer .centerBack div.backLink span{
     position: absolute;
     text-align: center;
@@ -275,7 +274,7 @@ div.flipBoxContainer .centerBack div.backLink span{
     right: 0;
     text-decoration: underline;
     font-style: italic;
-    font-size: 1.2em;
+    font-size: 1rem;
     top: 50%;
     transform: translateY(-50%);
 }
