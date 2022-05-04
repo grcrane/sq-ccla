@@ -175,10 +175,6 @@ div.flipBoxContainer .flip-card-back {
 }
 
 div.flipBoxContainer .labelText {
-   /* position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); */
     color: white;
     font-style: italic;
     font-size: 1.5em;
@@ -186,6 +182,10 @@ div.flipBoxContainer .labelText {
 }
 
 div.flipBoxContainer .flip-card-front .labelText {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     white-space: pre-wrap;
     background-color: rgb(238, 238, 238);
