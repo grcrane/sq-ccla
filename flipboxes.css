@@ -175,10 +175,10 @@ div.flipBoxContainer .flip-card-back {
 }
 
 div.flipBoxContainer .labelText {
-    position: absolute;
+   /* position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     color: white;
     font-style: italic;
     font-size: 1.5em;
@@ -228,11 +228,11 @@ div.flipBoxContainer .centerBack .labelText {
 }
 
 div.flipBoxContainer div.centerBack .labelText {
-    left: unset;
+   /* left: unset;
     top: unset;
-    transform: unset;
+    transform: unset;*/
 }
-
+/*
 div.flipBoxContainer div.centerBack .labelText {
     display: inline-block;
     color: black;
@@ -245,6 +245,7 @@ div.flipBoxContainer div.centerBack .labelText {
     left: 0;
     right: 0;
 }
+*/
 
 div.flipBoxContainer .centerBack div.backContent div {
     padding: 0 20px;
@@ -267,6 +268,7 @@ div.flipBoxContainer .centerBack div.backContent p {
   padding: 10px 0;
 }
 
+/*
 div.flipBoxContainer .centerBack div.backLink span{
     position: absolute;
     text-align: center;
@@ -277,6 +279,32 @@ div.flipBoxContainer .centerBack div.backLink span{
     font-size: 1rem;
     top: 50%;
     transform: translateY(-50%);
+}
+*/
+
+div.flipBoxContainer .centerBack div.backLink span {
+  text-decoration: underline;
+}
+
+div.flipBoxContainer div.flex-container div.newColumn .flip-card {
+    border-radius: 10px;
+    border: 3px solid #337aa6;
+}
+
+div.flipBoxContainer .centerBack div.topBox {
+  background: #b0cdd9;
+}
+
+div.flipBoxContainer .flip-card-back {
+  background-color: #2168A6;
+}
+
+div.flipBoxContainer .centerBack div.backLink span {
+  text-decoration: none;
+  background: #b0cdd9;
+  padding: 0 10px;
+  border-radius: 5px;
+  color: black;
 }
 
 @media (max-width: 800px) {
