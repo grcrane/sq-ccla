@@ -1,7 +1,7 @@
 function flipCardResize(selectorID) {
   var fontsize = parseInt($(selectorID + ' .backContent div').css('font-size'));
   var height = parseInt($(selectorID + ' .backContent').css('height'));
-  var lineheight = fontsize * 1.2;
+  var lineheight = fontsize * 1.8;
   var lines = parseInt(height / lineheight);
   //alert(fontsize + ' ' + height + ' ' + lineheight + ' ' + lines);
   $(selectorID + ' .backContent div').css("-webkit-line-clamp", lines.toString());
