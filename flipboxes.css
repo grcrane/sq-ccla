@@ -286,20 +286,20 @@ div.flipBoxContainer .centerBack div.backLink span {
   text-decoration: underline;
 }
 
-div.flipBoxContainer div.flex-container div.newColumn .flip-card {
+div.flipBoxContainer.layout2 div.flex-container div.newColumn .flip-card {
     border-radius: 10px;
     border: 3px solid #337aa6;
 }
 
-div.flipBoxContainer .centerBack div.topBox {
+div.flipBoxContainer.layout2 .centerBack div.topBox {
   background: #b0cdd9;
 }
 
-div.flipBoxContainer .flip-card-back {
+div.flipBoxContainer.layout2 .flip-card-back {
   background-color: #2168A6;
 }
 
-div.flipBoxContainer .centerBack div.backLink span {
+div.flipBoxContainer.layout2 .centerBack div.backLink span {
   text-decoration: none;
   background: #b0cdd9;
   padding: 0 10px;
